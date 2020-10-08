@@ -1,10 +1,12 @@
 require 'pry'
 require_relative '../lib/concerns/memorable'
 require_relative '../lib/concerns/findable'
+require_relative '../lib/concerns/paramble'
 
 class Song
   extend Memorable
   extend Findable
+  include Paramble
   
   attr_accessor :name
   attr_reader :artist
@@ -23,7 +25,7 @@ class Song
     @artist = artist
   end
 
-  def to_param
-    name.downcase.gsub(' ', '-')
-  end
+  #def to_param
+    #name.downcase.gsub(' ', '-')
+  #end
 end
